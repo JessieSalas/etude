@@ -1,0 +1,154 @@
+\version "2.16.0" 
+ \header { 
+ title= "tile given by user" 
+ subtitle= "subtitile" 
+ instrument = "guitar" 
+ arranger = "Etude" 
+ tagline = "Created by Etude, the free practice engine." 
+ } 
+<< 
+\chords { 
+    b2:maj7 d2:7  
+    g2:maj7 bes2:7  
+    ees1:maj7  
+    a2:min7 d2:7  
+    g2:maj7 bes2:7  
+    ees2:maj7 fis2:7  
+    b1:maj7  
+    f2:min7 bes2:7  
+    ees1:maj7  
+    a2:min7 d2:7  
+    g1:maj7  
+    cis2:min7 fis2:7  
+    b1:maj7  
+    f2:min7 bes2:7  
+    ees1:maj7  
+    cis2:min7 fis2:7  
+} 
+{ \clef treble 
+    e'8 
+    dis'8 
+    cis'8 
+    b8 
+    g'8 
+    fis'8 
+    e'8 
+    d'8 
+    c''8 
+    b'8 
+    a'8 
+    g'8 
+    bes8 
+    c'8 
+    d'8 
+    dis'8 
+    d''8 
+    cis''8 
+    b'8 
+    a'8 
+    d'8 
+    e'8 
+    fis'8 
+    g'8 
+    g'8 
+    a'8 
+    b'8 
+    c''8 
+    bes8 
+    c'8 
+    d'8 
+    dis'8 
+    fis'8 
+    gis'8 
+    a'8 
+    b'8 
+    b'8 
+    a'8 
+    gis'8 
+    fis'8 
+    e'8 
+    dis'8 
+    cis'8 
+    b8 
+    dis'8 
+    ais'8 
+    gis'8 
+    cis'8 
+    b8 
+    fis'8 
+    b'8 
+    e'8 
+    f'8 
+    g'8 
+    gis'8 
+    ais'8 
+    bes8 
+    c'8 
+    d'8 
+    dis'8 
+    d''8 
+    cis''8 
+    b'8 
+    a'8 
+    d'8 
+    e'8 
+    fis'8 
+    g'8 
+    g''8 
+    f''8 
+    e''8 
+    d''8 
+    c''8 
+    b'8 
+    a'8 
+    g'8 
+    g'8 
+    c''8 
+    d''8 
+    g''8 
+    a'8 
+    e''8 
+    b'8 
+    fis''8 
+    cis'8 
+    dis'8 
+    e'8 
+    fis'8 
+    fis'8 
+    gis'8 
+    a'8 
+    b'8 
+    b'8 
+    a'8 
+    gis'8 
+    fis'8 
+    e'8 
+    dis'8 
+    cis'8 
+    b8 
+    b8 
+    cis'8 
+    dis'8 
+    e'8 
+    fis'8 
+    gis'8 
+    ais'8 
+    b'8 
+    f'8 
+    g'8 
+    gis'8 
+    ais'8 
+    bes8 
+    dis'8 
+    d'8 
+    c'8 
+    cis'8 
+    dis'8 
+    e'8 
+    fis'8 
+    fis'8 
+    gis'8 
+    a'8 
+    (b'8)
+} 
+>>
