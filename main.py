@@ -9,7 +9,7 @@ Builder.load_string("""
 <MenuScreen>:
     FloatLayout:
         Image:
-            source: 'pi.png'
+            source: 'pi.jpg'
             y: self.parent.y + self.parent.height -475
             x: self.parent.x
             size_hint_y: .7
