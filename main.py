@@ -5,7 +5,17 @@ from kivy.uix.listview import ListView
 from kivy.uix.gridlayout import GridLayout
 from kivy.logger import Logger
 
+import os
+import random
+import etude_class
+from chords import songs
+
+
 Builder.load_string("""
+#:import good etude_class 
+#:import command subprocess.call 
+#: import songs chords.songs
+
 <MenuScreen>:
     FloatLayout:
         Image:
@@ -43,7 +53,17 @@ Builder.load_string("""
             on_press: root.manager.current = 'menu'
 
 
+
+<SongButton@Button>: 
+    #define template for what the song buttons have in common
+    text_size: self.size
+    text_hint: .5, .5
+    halign: 'center'
+    valign: 'middle'
+     
+
 <MusicScreen>
+    dream: _dream
     BoxLayout:
         orientation: 'vertical'
         Label: 
@@ -66,48 +86,34 @@ Builder.load_string("""
         GridLayout:
             rows: 2
             cols: 3
-            Button:
+         
+            SongButton:
                 text: 'The Girl from Ipanema'
-                text_size: self.size
-                text_hint: .5, .5
-                halign: 'center'
-                valign: 'middle'
-                on_press: root.manager.current = 'instrument'
-            Button: 
+                id: _dream
+                on_press: dream = songs['Girl From Ipanema'] 
+                on_press: root.manager.current = 'instrument'         
+                
+
+            SongButton: 
                 text: 'Giant Steps'
-                text_size: self.size
-                text_hint: .5, .5
-                halign: 'center'
-                valign: 'middle'
                 on_press: root.manager.current = 'instrument'
-            Button: 
+
+            SongButton: 
                 text: 'How High the Moon'
-                text_size: self.size
-                text_hint: .5, .5
-                halign: 'center'
-                valign: 'middle'
                 on_press: root.manager.current = 'instrument'
-            Button: 
+
+            SongButton: 
                 text: 'Blues for Alice'
-                text_size: self.size
-                text_hint: .5, .5
-                halign: 'center'
-                valign: 'middle'
                 on_press: root.manager.current = 'instrument'
-            Button: 
+
+            SongButton: 
                 text: 'Straight, No Chaser'
-                text_size: self.size
-                text_hint: .5, .5
-                halign: 'center'
-                valign: 'middle'
                 on_press: root.manager.current = 'instrument'
-            Button:
+
+            SongButton:
                 text: 'Mr. P.C.'
-                text_size: self.size
-                text_hint: .5, .5
-                halign: 'center'
-                valign: 'middle'
-                on_press: root.manager.current = "instrument"
+                on_press: root.manager.current = 'instrument'
+
         GridLayout:
             rows:1
             cols:5
@@ -120,6 +126,13 @@ Builder.load_string("""
                 text_hint: .5,.5
                 size_hint: .2,.15
                 on_press: root.manager.current = 'menu'
+
+<InstrButton@Button>:
+    text_size: self.size
+    halign: 'center'
+    valign: 'middle'
+    text_hint: .5, .5
+    size_hint: .5, .15
 
 <Instrument>
     BoxLayout:
@@ -149,69 +162,32 @@ Builder.load_string("""
         GridLayout:
             rows: 4
             cols: 2
-            Button:
+            InstrButton:
                 text: 'Alto Sax'
-                text_size: self.size
-                halign: 'center'
-                valign: 'middle'
-                text_hint: .5, .5
-                size_hint: .5, .15
-                #:set instr1 "Alto"
-            Button:
+                on_press: #:set instrument sax_notes
+                on_press: print(instrument)
+                on_press: good.do(root.dream)
+                on_press: command(["lilypond", "raw.lily"])
+            InstrButton:
                 text: 'Tenor Sax'
-                text_size: self.size
-                halign: 'center'
-                valign: 'middle'
-                text_hint: .5, .5
-                size_hint: .5, .15
                 #:set instr2 "Tenor"
-            Button:
+            InstrButton:
                 text: 'Soprano Sax'
-                text_size: self.size
-                halign: 'center'
-                valign: 'middle'
-                text_hint: .5, .5
-                size_hint: .5, .15
                 #:set instr3 "Soprano"
-            Button:
+            InstrButton:
                 text: 'Baritone Sax'
-                text_size: self.size
-                halign: 'center'
-                valign: 'middle'
-                text_hint: .5, .5
-                size_hint: .5, .15
                 #:set instr4 "Baritone"
-            Button:
+            InstrButton:
                 text: 'Trumpet'
-                text_size: self.size
-                halign: 'center'
-                valign: 'middle'
-                text_hint: .5, .5
-                size_hint: .5, .15
                 #:set instr5 "Trumpet"
-            Button:
+            InstrButton:
                 text: 'Clarinet'
-                text_size: self.size
-                halign: 'center'
-                valign: 'middle'
-                text_hint: .5, .5
-                size_hint: .5, .15
                 #:set instr6 "Clarinet"
-            Button:
+            InstrButton:
                 text: 'Flute'
-                text_size: self.size
-                halign: 'center'
-                valign: 'middle'
-                text_hint: .5, .5
-                size_hint: .5, .15
                 #:set instr7 "Flute"
-            Button:
+            InstrButton:
                 text: 'Guitar'
-                text_size: self.size
-                halign: 'center'
-                valign: 'middle'
-                text_hint: .5, .5
-                size_hint: .5, .15
                 #:set instr8 "Guitar"
         Button:
             text: 'Back'
@@ -248,7 +224,7 @@ class MusicScreen(Screen):
 class OptionsScreen(Screen):
     pass
 
-class Instrument(Screen):
+class Instrument(MusicScreen):
     pass
 
 
@@ -261,9 +237,20 @@ sm.add_widget(OptionsScreen(name='options'))
 
 sm.add_widget(Instrument(name='instrument'))
 
+
+
 class TestApp(App):
     def build(self):
         return sm
+    def clean(self,instance, note):
+        return etude_class.clean(self.note)
+    def generate_scale(self, kind, instrument_notes, starting_note):
+        return etude_class.generate_scale(self.kind, self.instrument_notes, self.starting_note)
+    def parse(self, instance):
+        etude_class.parse()
+    def write(self, instance):
+        etude_class.write()
+    
 
 if __name__ == '__main__':
     TestApp().run()
