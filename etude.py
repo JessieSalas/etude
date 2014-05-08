@@ -2,12 +2,11 @@
 import os
 import random
 from chords import songs
-import main
 
 lily_file = open("raw.lily", "w")
-title = "tile given by user" #depends on what the user selects
-subtitle = "subtitile" #we may not include a subtitile
-instrument = "instrument" #defined by user
+title = "How High The Moon" #depends on what the user selects
+subtitle = "personalized practice" #we may not include a subtitile
+instrument = "Tenor Saxophone" #defined by user
 arranger = "Etude"
 tagline = "Created by Etude, the free practice engine."
 
@@ -119,7 +118,7 @@ tab = "    "
 
 lily_file.write('\\version "2.16.0" \n ')
 lily_file.write('\\header { \n')
-lily_file.write(' title= "{0}" \n subtitle= "{1}" \n instrument = "{2}" \n arranger = "{3}" \n tagline = "{4}" \n '.format(title, subtitle, "guitar", arranger, tagline))
+lily_file.write(' title= "{0}" \n subtitle= "{1}" \n instrument = "{2}" \n arranger = "{3}" \n tagline = "{4}" \n '.format(title, subtitle, "Tenor Sax!", arranger, tagline))
 lily_file.write('} \n')
 lily_file.write('<< \n')
 
