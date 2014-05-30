@@ -8,7 +8,7 @@ title = "How High The Moon" #depends on what the user selects
 subtitle = "personalized practice" #we may not include a subtitile
 instrument = "Tenor Saxophone" #defined by user
 arranger = "Etude"
-tagline = "Created by Etude, the free practice engine."
+tagline = "Created by Etude, the personalized practice engine."
 
 
 sax_notes = ["bes8", "b8", "c'8","cis'8","d'8","dis'8","e'8","f'8","fis'8","g'8","gis'8","a'8","ais'8","b'8","c''8","cis''8", "d''8", "dis''8", "e''8","f''8", "fis''8", "g''8", "gis''8", "a''8", "ais''8", "b''8","c'''8", "cis'''8", "d'''8", "dis'''8", "e'''8", "f'''8"] #for saxes
